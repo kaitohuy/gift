@@ -1,0 +1,81 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+}
+
+
+
+* {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.6rem;
+    height: -webkit-fill-available;
+}
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row {
+    margin: 0 10%;
+}
+
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.col {
+    float: left;
+}
+
+.col-6 {
+    width: 16%;
+}
+.col-5 {
+    width: 20%;
+}
+.col-4 {
+    width: 25%;
+}
+.col-3 {
+    width: 33.3333%;
+}
+.col-2 {
+    width: 50%;
+}
+.col-1 {
+    width: 100%;
+}
+
+/* Reset h1 styles */
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    /* font-weight: normal; */
+    line-height: normal;
+    color: inherit;
+    font-family: inherit;
+  }
+  

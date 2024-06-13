@@ -1,0 +1,120 @@
+@media only screen and (max-width: 1238px) and (min-width: 1024px) {
+    .row {
+        margin: 0 1.5%;
+    }
+
+    .header .menu .list-menu .select-gift {
+        width: 27%;
+    }
+
+    .header .menu .list-menu a {
+        padding: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 1023.999px){
+    .row {
+        margin: 0 8%;
+    }
+
+    .header .menu .list-menu .select-gift {
+        width: 50%;
+    }
+    iframe {
+        min-height: 20.0rem;
+    }
+    .list-menu .menu-item {
+        display: none;
+    }
+    .homepage {
+        display: block;
+        float: right;
+    }
+    .ti-home:hover, .ti-close:hover, .bars-gift:hover {
+        cursor: pointer;
+        color: firebrick;
+    }
+    
+}
+
+/* mobile */
+@media only screen and (max-width: 739px) {
+    .row {
+        margin: 0 2%;
+    }
+
+    .select-gift {
+        display: none;
+    }
+
+    .navbar .search {
+        display: none;
+    }
+
+    .bars-gift {
+        display: block;
+    }
+
+    .footer .site-logo {
+        width: 50%;
+        height: auto;
+    }
+
+    .navbar .site-logo {
+        width: 32%;
+        height: auto;
+    }
+
+    .homepage {
+        float: none;
+    }
+
+    .list-menu {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .search-menu-item {
+        display: block;
+    }
+
+    .search {
+        width: 60%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .search .search-btn {
+        position: relative;
+    }
+
+    .search .fa-magnifying-glass {
+        bottom: 5.1rem;
+        position: absolute;
+    }
+
+    .list-mobile, 
+    .list-menu-mobile {
+        width: 50%;
+    }
+
+    .menu-footer {
+        flex-direction: column;
+        gap: 2.0rem;
+        width: 100%;
+    }
+
+    .footer-item {
+        width: 100%; /* Chiếm toàn bộ chiều ngang của menu-footer */
+        padding: 1.0rem; /* Thêm padding để các mục trông đẹp hơn */
+        background-color: #f1f1f1; /* Optional: Thêm nền để phân biệt các mục */
+        border-radius: 0.5rem; /* Optional: Bo góc cho đẹp */
+    }
+
+    iframe {
+        width: 100%;  
+        position: relative;
+        margin-top: 4.8rem;
+        border-radius: 0.5rem; /* Optional: Bo góc cho đẹp */
+    }
+}
