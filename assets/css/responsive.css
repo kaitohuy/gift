@@ -78,19 +78,27 @@
         display: block;
     }
 
+    .search-menu-item > input {
+        width: 100%;
+        position: relative;
+    }
+
+    .search-menu-item > a {
+        position: absolute;
+        right: 0;
+        padding-top: 0.5rem;
+        width: 10%;
+    }
+
     .search {
+        height: 46px;
         width: 60%;
         padding: 0;
         margin: 0;
     }
-    
-    .search .search-btn {
-        position: relative;
-    }
 
     .search .fa-magnifying-glass {
-        bottom: 5.1rem;
-        position: absolute;
+        
     }
 
     .list-mobile, 
@@ -116,5 +124,14 @@
         position: relative;
         margin-top: 4.8rem;
         border-radius: 0.5rem; /* Optional: Bo góc cho đẹp */
+    }
+}
+
+
+
+/* small mobile */
+@media only screen and (max-width: 400px) {
+    .navbar .phone {
+        width: 150px;
     }
 }

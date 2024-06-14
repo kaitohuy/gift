@@ -92,129 +92,23 @@ document.addEventListener("DOMContentLoaded", function() {
     showSlides(); // Gọi ban đầu để hiển thị slide đầu tiên
 });
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     const giftItems = document.querySelectorAll('.gift-item');
-//     const giftWrapper = document.querySelector('.gift');
-//     const btnPrev = document.querySelector('.prev-gift');
-//     const btnNext = document.querySelector('.next-gift');
-//     const dots = document.querySelectorAll('.dot-gift');
-
-//     let currentIndex = 0;
-//     let itemsToShow = 5; // Default number of items to show
-//     let itemWidth;
-
-//     function makeSlide() {
-//         const containerWidth = giftWrapper.parentElement.offsetWidth;
-//         itemWidth = (containerWidth - (itemsToShow - 1) * 8) / itemsToShow; // Adjust for item margins
-//         giftItems.forEach(item => {
-//             item.style.width = `${itemWidth}px`;
-//         });
-//     }
-
-//     function updateSlider() {
-//         const screenWidth = window.innerWidth;
-//         if (screenWidth >= 1366) {
-//             itemsToShow = 5;
-//         } else if (screenWidth >= 992) {
-//             itemsToShow = 4;
-//         } else if (screenWidth >= 768) {
-//             itemsToShow = 3;
-//         } else {
-//             itemsToShow = 1;
-//         }
-//         makeSlide();
-//         showSlidesGift(currentIndex);
-//     }
-
-//     function showSlidesGift(n) {
-//         const totalItems = giftItems.length;
-//         const maxIndex = Math.max(totalItems - itemsToShow, 0); // Ensure maxIndex is not negative
-
-//         if (n > maxIndex) {
-//             n = maxIndex; // Set index to maxIndex if exceeding
-//         } else if (n < 0) {
-//             n = 0; // Set index to 0 if less than 0
-//         }
-
-//         currentIndex = n;
-//         const endIndex = n + itemsToShow;
-
-//         giftItems.forEach((item, index) => {
-//             if (index >= n && index < endIndex) {
-//                 item.style.display = "block";
-//             } else {
-//                 item.style.display = "none";
-//             }
-//         });
-
-//         updateDots();
-//     }
-
-//     function updateDots() {
-//         const totalItems = giftItems.length;
-//         const totalSlides = Math.ceil(totalItems / itemsToShow);
-
-//         dots.forEach((dot, i) => {
-//             dot.classList.remove('active-gift');
-//         });
-
-//         const activeIndex = Math.floor(currentIndex / itemsToShow);
-//         if (currentIndex + itemsToShow >= totalItems) {
-//             dots[totalSlides - 1].classList.add('active-gift');
-//         } else {
-//             dots[activeIndex].classList.add('active-gift');
-//         }
-//     }
-
-//     btnNext.addEventListener('click', function () {
-//         const nextIndex = currentIndex + itemsToShow;
-//         if (nextIndex >= giftItems.length) {
-//             showSlidesGift(0); // Move to the first slide if at the last slide
-//         } else {
-//             showSlidesGift(nextIndex);
-//         }
-//     });
-
-//     btnPrev.addEventListener('click', function () {
-//         const prevIndex = currentIndex - itemsToShow;
-//         if (prevIndex < 0) {
-//             showSlidesGift(giftItems.length - itemsToShow); // Move to the last slide if at the first slide
-//         } else {
-//             showSlidesGift(prevIndex);
-//         }
-//     });
-
-//     dots.forEach((dot, index) => {
-//         dot.addEventListener('click', function () {
-//             showSlidesGift(index * itemsToShow);
-//         });
-//     });
-
-//     window.addEventListener('resize', updateSlider);
-
-//     updateSlider();
-// });
-
 document.addEventListener("DOMContentLoaded", function() {
-    // Chọn tất cả các phần tử danh sách quà tặng
     const giftLists = document.querySelectorAll('.list-gift');
 
-    // Vòng lặp qua từng danh sách quà tặng
     giftLists.forEach(function(giftList) {
-        // Lấy các phần tử con cụ thể trong từng danh sách quà tặng
         const giftItems = giftList.querySelectorAll('.gift-item');
         const giftWrapper = giftList.querySelector('.gift');
         const btnPrev = giftList.querySelector('.prev-gift');
         const btnNext = giftList.querySelector('.next-gift');
         const dots = giftList.querySelectorAll('.dots-gift-container .dot-gift');
-
         let currentIndex = 0;
-        let itemsToShow = 5; // Số lượng mặt hàng mặc định để hiển thị
+        let itemsToShow = 5; // Default number of items to show
         let itemWidth;
+        let slideInterval;
 
         function makeSlide() {
             const containerWidth = giftWrapper.offsetWidth;
-            itemWidth = (containerWidth - (itemsToShow - 1) * 8) / itemsToShow; // Điều chỉnh cho việc margin của các mặt hàng
+            itemWidth = (containerWidth - (itemsToShow - 1) * 8) / itemsToShow;
             giftItems.forEach(item => {
                 item.style.width = `${itemWidth}px`;
             });
@@ -237,12 +131,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         function showSlidesGift(n) {
             const totalItems = giftItems.length;
-            const maxIndex = Math.max(totalItems - itemsToShow, 0); // Đảm bảo maxIndex không âm
+            const maxIndex = Math.max(totalItems - itemsToShow, 0);
 
             if (n > maxIndex) {
-                n = maxIndex; // Đặt chỉ số về maxIndex nếu vượt quá
+                n = maxIndex;
             } else if (n < 0) {
-                n = 0; // Đặt chỉ số về 0 nếu nhỏ hơn 0
+                n = 0;
             }
 
             currentIndex = n;
@@ -263,6 +157,11 @@ document.addEventListener("DOMContentLoaded", function() {
             const totalItems = giftItems.length;
             const totalSlides = Math.ceil(totalItems / itemsToShow);
 
+            if (!dots || dots.length === 0) {
+                console.error('Dots not found!');
+                return;
+            }
+
             dots.forEach((dot, i) => {
                 dot.classList.remove('active-gift');
             });
@@ -275,35 +174,38 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        btnNext.addEventListener('click', function () {
-            const nextIndex = currentIndex + itemsToShow;
-            if (nextIndex >= giftItems.length) {
-                showSlidesGift(0); // Di chuyển đến slide đầu tiên nếu đang ở slide cuối cùng
-            } else {
-                showSlidesGift(nextIndex);
+        function plusSlidesGift(n) {
+            clearInterval(slideInterval);
+            currentIndex += n;
+            if (currentIndex >= giftItems.length) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = giftItems.length - 1;
             }
+            showSlidesGift(currentIndex);
+            slideInterval = setInterval(() => plusSlidesGift(1), 3000);
+        }
+
+        btnNext.addEventListener('click', function() {
+            plusSlidesGift(1);
         });
 
-        btnPrev.addEventListener('click', function () {
-            const prevIndex = currentIndex - itemsToShow;
-            if (prevIndex < 0) {
-                showSlidesGift(giftItems.length - itemsToShow); // Di chuyển đến slide cuối cùng nếu đang ở slide đầu tiên
-            } else {
-                showSlidesGift(prevIndex);
-            }
+        btnPrev.addEventListener('click', function() {
+            plusSlidesGift(-1);
         });
 
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', function () {
+            dot.addEventListener('click', function() {
                 showSlidesGift(index * itemsToShow);
             });
         });
 
         window.addEventListener('resize', updateSlider);
-
         updateSlider();
+        slideInterval = setInterval(() => plusSlidesGift(1), 3000);
     });
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
     var zaloButton = document.querySelector('.contact .zalo');

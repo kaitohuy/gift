@@ -1,5 +1,6 @@
 /* header */
 .header {
+    position: -webkit-sticky;
     position: sticky;
     z-index: 3;
     padding-top: 2rem;
@@ -57,6 +58,7 @@
 .navbar .phone {
     display: flex;
     align-items: center;
+    min-width: 150px;
 }
 
 .navbar .phone .fa-phone {
@@ -216,8 +218,15 @@
 
 /* Fade animation */
 .fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
 
 @keyframes fade {
@@ -384,17 +393,20 @@ iframe {
 }
 
 .contact div:hover {
-  animation: shakehover 0.3s ease-in-out, shake 0.3s ease-in-out, pulse 1.5s infinite;
+  -webkit-animation: shakehover 0.3s ease-in-out, shake 0.3s ease-in-out, pulse 1.5s infinite;
+          animation: shakehover 0.3s ease-in-out, shake 0.3s ease-in-out, pulse 1.5s infinite;
 }
 
 .contact div {
-  animation: shake 0.3s ease-in-out, pulse 1.5s infinite;
+  -webkit-animation: shake 0.3s ease-in-out, pulse 1.5s infinite;
+          animation: shake 0.3s ease-in-out, pulse 1.5s infinite;
 }
 
 .contact img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Đảm bảo hình ảnh phù hợp với khung */
+  -o-object-fit: cover;
+     object-fit: cover; /* Đảm bảo hình ảnh phù hợp với khung */
 }
 
 #scrollTopBtn {
@@ -423,6 +435,21 @@ iframe {
   font-size: 2.4rem; /* Tăng kích thước của mũi tên */
 }
 
+@-webkit-keyframes shake {
+  0%, 100% {
+      transform: translateX(0);
+  }
+  25% {
+      transform: translateX(-.2rem);
+  }
+  50% {
+      transform: translateX(.2rem);
+  }
+  75% {
+      transform: translateX(-.2rem);
+  }
+}
+
 @keyframes shake {
   0%, 100% {
       transform: translateX(0);
@@ -438,6 +465,19 @@ iframe {
   }
 }
 
+@-webkit-keyframes pulse {
+  0% {
+      box-shadow: 0 0 0 0 #6EC1E4;
+  }
+  70% {
+      box-shadow: 0 0 0 2.0rem #6EC1E4;
+      opacity: 0.7;
+  }
+  100% {
+      box-shadow: 0 0 0 0 #6EC1E4;
+  }
+}
+
 @keyframes pulse {
   0% {
       box-shadow: 0 0 0 0 #6EC1E4;
@@ -448,6 +488,22 @@ iframe {
   }
   100% {
       box-shadow: 0 0 0 0 #6EC1E4;
+  }
+}
+
+
+@-webkit-keyframes shakehover {
+  0%, 100% {
+      transform: translateX(0);
+  }
+  25% {
+      transform: translateX(-.2rem);
+  }
+  50% {
+      transform: translateX(.2rem);
+  }
+  75% {
+      transform: translateX(-.2rem);
   }
 }
 
