@@ -25,12 +25,11 @@
 } */
 
 .header {
+  position: fixed;
+  z-index: 3;
   padding-top: 2rem;
   width: 100%;
-  background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background: url("/assets/image/thiep_ngang.jpg") no-repeat center;
-  background-size: cover;
   height: 19vh; /* Adjust the height as needed for your header */
   width: 100%; /* Ensure the header takes the full width of the viewport */
 }
@@ -41,9 +40,12 @@
   z-index: 1000;
   opacity: 0;
   transform: translateY(-100%);
+  background: url("/assets/image/thiep_ngang.jpg") no-repeat center;
+  background-size: cover;
 }
 
 .header.shrink {
+
   transition: all 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
   opacity: 1;
   transform: translateY(0);
@@ -176,20 +178,22 @@
 
 /* container */
 .container {
+  top: 0;
   padding-bottom: 0.1rem;
+  z-index: 1; /* Đảm bảo z-index nhỏ hơn header */
+  position: relative; /* Nếu cần, để z-index hoạt động */
 }
+
   /* container slideshow */
 .slideshow-container {
   position: relative;
   width: 100%;
-  overflow: hidden;
 }
 
 .mySlides {
   display: none;
   position: relative;
   margin-bottom: 3.2rem;
-  overflow: hidden;
 }
 
 .mySlides > img {
