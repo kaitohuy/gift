@@ -16,6 +16,7 @@ html {
     font-size: 62.5%;
     font-family: "Roboto", sans-serif;
     line-height: 1.6rem;
+    scroll-behavior: smooth;
     height: -webkit-fill-available;
 }
 
@@ -76,4 +77,3 @@ h1, h2, h3 {
     color: inherit;
     font-family: inherit;
   }
-  

@@ -35,6 +35,10 @@
         color: firebrick;
     }
     
+    /* gioi-thieu page */
+    .controduction .title-img {
+        width: 100%;
+        }
 }
 
 /* mobile */
@@ -67,9 +71,11 @@
 
     .homepage {
         float: none;
+        margin-right: 0;
     }
 
     .list-menu {
+        margin-right: 0;
         display: flex;
         justify-content: space-between;
     }
@@ -97,10 +103,6 @@
         margin: 0;
     }
 
-    .search .fa-magnifying-glass {
-        
-    }
-
     .list-mobile, 
     .list-menu-mobile {
         width: 50%;
@@ -125,9 +127,19 @@
         margin-top: 4.8rem;
         border-radius: 0.5rem; /* Optional: Bo góc cho đẹp */
     }
+
+    /* gioi-thieu page */
+    .header {
+        padding-top: 2rem;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background: url("/assets/image/thiep_ngang.jpg") no-repeat right;
+        background-size: cover;
+        height: 17vh; /* Adjust the height as needed for your header */
+        width: 100%; /* Ensure the header takes the full width of the viewport */
+      }
 }
-
-
 
 /* small mobile */
 @media only screen and (max-width: 400px) {

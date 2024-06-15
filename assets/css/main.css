@@ -1,13 +1,56 @@
 /* header */
-.header {
-    position: -webkit-sticky;
-    position: sticky;
-    z-index: 3;
-    padding-top: 2rem;
-    top: 0;
-    background-color: #fff;
+/* .header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  padding-top: 2rem;
+  transition: all 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-100%);
 }
-  /* header - navbar */
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header.shrink {
+  position: fixed;
+  top: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transform: translateY(0);
+  
+} */
+
+.header {
+  padding-top: 2rem;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: url("/assets/image/thiep_ngang.jpg") no-repeat center;
+  background-size: cover;
+  height: 19vh; /* Adjust the height as needed for your header */
+  width: 100%; /* Ensure the header takes the full width of the viewport */
+}
+
+.header.visible {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.header.shrink {
+  transition: all 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+} 
+
+/* header - navbar */
 .header .navbar {
     display: flex;
     justify-content: space-between;
@@ -58,7 +101,7 @@
 .navbar .phone {
     display: flex;
     align-items: center;
-    min-width: 150px;
+    width: 150px;
 }
 
 .navbar .phone .fa-phone {
@@ -70,6 +113,7 @@
 .navbar .phone .phone_text > a {
     font-size: 1.6rem;
     text-decoration: none;
+
 }
 
 .navbar .phone .phone_text > a:hover {
@@ -132,19 +176,34 @@
 
 /* container */
 .container {
-  background-color: #eeeeee;
   padding-bottom: 0.1rem;
 }
   /* container slideshow */
 .slideshow-container {
   position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .mySlides {
   display: none;
   position: relative;
-  padding-top: 2%;
   margin-bottom: 3.2rem;
+  overflow: hidden;
+}
+
+.mySlides > img {
+  width: 100%;
+  background-size: contain;
+}
+
+.gift-container {
+  position: relative;
+  background-image: url("/assets/image/wood_leaves.jpg");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
 }
 
 /* Dots container */
@@ -583,4 +642,64 @@ iframe {
   cursor: pointer;
   font-size: 2.4rem;
   padding: 1.2rem;
+}
+
+
+/* giới thiệu pages */
+.sub-nav {
+  background-color: #eeeeee;
+  margin-bottom: 1.6rem;
+}
+
+.sub-nav > div {
+  display: flex;
+  font-size: 1.2rem;
+}
+
+.sub-nav i {
+  font-size: 0.8rem;
+}
+
+.sub-nav a {
+  text-decoration: none;
+  color: #000;
+}
+
+.sub-nav a:hover {
+  color: #FCB800;
+}
+
+.sub-nav > div > p {
+  padding: 1.6rem 0;
+  color: #FCB800;
+}
+
+.controduction > div {
+  padding: 1.6rem 0;
+}
+
+.controduction .title {
+  font-size: 3.2rem;
+  font-weight: 400;
+  opacity: 0.7;
+  padding: 1.6rem 0;
+}
+
+.controduction .list-sub-title, 
+.controduction .sub-title {
+  font-size: 1.5rem;
+  color: #495057;
+  text-align: justify;
+  line-height: 1.4; 
+}
+
+.controduction .title-img {
+  width: 50%;
+  padding: 1.6rem;
+}
+
+.controduction .list-sub-title li {
+  list-style-type:disc;
+  padding: 1.6px;
+  margin-left: 1.6rem;
 }

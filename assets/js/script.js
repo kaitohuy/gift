@@ -1,35 +1,6 @@
-// let slideIndex = 1;
-// showSlides(slideIndex);
-
-// // Next/previous controls
-// function plusSlides(n) {
-//   showSlides(slideIndex += n);
-// }
-
-// // Thumbnail image controls
-// function currentSlide(n) {
-//   showSlides(slideIndex = n);
-// }
-
-// function showSlides(n) {
-//   let i;
-//   let slides = document.getElementsByClassName("mySlides");
-//   let dots = document.getElementsByClassName("dot");
-//   if (n > slides.length) {slideIndex = 1}
-//   if (n < 1) {slideIndex = slides.length}
-//   for (i = 0; i < slides.length; i++) {
-//     slides[i].style.display = "none";
-//   }
-//   for (i = 0; i < dots.length; i++) {
-//     dots[i].className = dots[i].className.replace(" active", "");
-//   }
-//   slides[slideIndex-1].style.display = "block";
-//   dots[slideIndex-1].className += " active";
-// }
-
 document.addEventListener("DOMContentLoaded", function() {
     let slideIndex = 0;
-    let slideInterval = setInterval(showSlides, 3000); // Thay đổi hình ảnh mỗi 3 giây
+    let slideInterval = setInterval(showSlides, 6000); // Thay đổi hình ảnh mỗi 3 giây
 
     function showSlides() {
         let i;
@@ -94,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const giftLists = document.querySelectorAll('.list-gift');
-
+    
     giftLists.forEach(function(giftList) {
         const giftItems = giftList.querySelectorAll('.gift-item');
         const giftWrapper = giftList.querySelector('.gift');
@@ -157,11 +128,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const totalItems = giftItems.length;
             const totalSlides = Math.ceil(totalItems / itemsToShow);
 
-            if (!dots || dots.length === 0) {
-                console.error('Dots not found!');
-                return;
-            }
-
             dots.forEach((dot, i) => {
                 dot.classList.remove('active-gift');
             });
@@ -205,6 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
         slideInterval = setInterval(() => plusSlidesGift(1), 3000);
     });
 });
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -300,3 +267,26 @@ document.addEventListener('DOMContentLoaded', () => {
         event.stopPropagation();
     });
 });
+
+window.addEventListener('scroll', function() {
+    var header = document.querySelector('.header');
+    if (window.scrollY <= 150 && window.scrollY > 100) {
+        header.classList.add('visible');
+    } else if (window.scrollY > 150) {
+        setTimeout(function() {
+            header.classList.add('shrink');
+        }, 100); // Add a delay of 500ms before adding 'shrink' class
+    } else {
+        header.classList.remove('visible');
+        header.classList.remove('shrink');
+    }
+});
+
+// Ensure the header is hidden when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    var header = document.querySelector('.header');
+    header.classList.remove('visible');
+    header.classList.remove('shrink');
+});
+
+
