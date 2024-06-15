@@ -40,7 +40,7 @@
   z-index: 1000;
   opacity: 0;
   transform: translateY(-100%);
-  background: url("/assets/image/thiep_ngang.jpg") no-repeat center;
+  background: url("./assets/image/thiep_ngang.jpg") no-repeat center;
   background-size: cover;
 }
 
@@ -203,7 +203,7 @@
 
 .gift-container {
   position: relative;
-  background-image: url("/assets/image/wood_leaves.jpg");
+  background-image: url("./assets/image/wood_leaves.jpg");
   background-repeat: repeat;
   background-position: center;
   background-size: contain;
