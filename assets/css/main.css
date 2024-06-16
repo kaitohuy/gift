@@ -324,10 +324,13 @@
 /* footer */
 .footer {
   position: relative;
+  background-color: #000;
+  color: #fff;
+  opacity: 0.8;
 }
 
 .title-footer {
-  border-bottom: 0.1rem solid #000;
+  border-bottom: 0.1rem solid #fff;
   padding: 3.2rem;
   text-align: center;
 }
@@ -362,12 +365,29 @@
 
 .text-footer > a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
 .text-footer > a:hover {
   color: #1e73be;
   text-decoration: underline;
+}
+
+.policy {
+  padding-left: 1.2rem; /* Thêm khoảng cách bên trái nếu cần thiết */
+}
+
+.policy li {
+  position: relative; /* Cho phép sử dụng pseudo-element */
+  margin-bottom: 0.5rem; /* Khoảng cách giữa các mục trong danh sách */
+}
+
+.policy li::before {
+  content: "\2022"; /* Mã Unicode cho dấu chấm tròn */
+  display: inline-block;
+  width: 1rem;
+  margin-left: -1rem; /* Để dấu chấm tròn thụt vào bên trái */
+  color: #ffffff; /* Màu của dấu chấm là màu trắng */
 }
 
 .social-media {
