@@ -122,7 +122,7 @@
     .footer-item {
         width: 100%; /* Chiếm toàn bộ chiều ngang của menu-footer */
         padding: 1.0rem; /* Thêm padding để các mục trông đẹp hơn */
-        background-color: #f1f1f1; /* Optional: Thêm nền để phân biệt các mục */
+        border: 1px solid #fff;
         border-radius: 0.5rem; /* Optional: Bo góc cho đẹp */
     }
 
